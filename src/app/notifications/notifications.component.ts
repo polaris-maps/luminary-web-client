@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IssueService } from '../service/issue/issue.service';
 
 @Component({
   selector: 'app-notifications',
@@ -7,26 +8,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
-
+  Issues:any = [];
+  constructor(private crudService: IssueService) { }
+  // Angular Init method, retrieve all notifications from database
+  ngOnInit(): void {
+    this.crudService.getIssues().subscribe(res => {
+      console.log(res)
+      this.Issues =res;
+    });  
+  }
  
   // TODO Downvote method to send data to datebase
-  downvote(): void {}
+  downvote(): void {
+    console.log("Placeholder Downvote")
+  }
 
   // TODO Method to retrive all notifications from database
   fetchAllNotifications(): void {}
 
   // TODO Method to retrive only user filtered notifications from database
   fetchMyNotifications(): void {}
-  
-  // Angular Init method, Fetch post user has already upvoted
-  ngOnInit(): void {}
 
   // TODO update page with new notifications set retrieved
   updatePage(): void {}
 
   // TODO Upvote method send data to database
-  upvote(): void {}
+  upvote(): void {
+    console.log("Placeholder Upvote")
+  }
 
 
 }

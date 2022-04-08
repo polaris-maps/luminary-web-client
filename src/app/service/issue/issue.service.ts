@@ -12,7 +12,7 @@ import {
   providedIn: 'root',
 })
 
-export class CrudService {
+export class IssueService {
   // Node/Express API
   REST_API: string = 'http://localhost:5001/app'; // TODO: replace with production api
   
