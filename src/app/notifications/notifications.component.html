@@ -10,10 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let issue of Issues; let i = index">
-        <th scope="row">{{issue._id}}</th>
+        <td>{{i + 1}}</td>
         <td>{{issue.location}}</td>
         <td>{{issue.description}}</td>
-        <td>{{issue.datetimeOpen}}</td>
+        <td value="EEEE, MMMM d, yyyy h:mm a">{{issue.datetimeOpen | date:'EEEE, MMMM d, yyyy h:mm a'}}</td>
         <td>{{issue.votes}}</td>
         <td><button class="btn btn-primary" (click)="upvote()">Up</button></td>
         <td><button class="btn btn-secondary" (click)="downvote()">Down</button></td>
