@@ -7,14 +7,15 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class CrudService {
+export class IssueService {
   // Node/Express API
-  REST_API: string = 'http://localhost:5001/app'; // TODO: replace with production api
+  REST_API: string = environment.apiUrl;
   
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
@@ -48,7 +49,7 @@ export class CrudService {
   updateIssue(id: any, data: any): Observable<any> {
     let API_URL = `${this.REST_API}/issue/update/${id}`;
     return this.httpClient
-      .put(API_URL, data, { headers: this.httpHeaders })
+      .patch(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 
