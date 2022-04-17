@@ -1,5 +1,11 @@
-<div class="buttonContainer">
-    <button type="button" class="w-50 btn btn-primary btn-lg btn-block.">My Locations</button>
-    <button type="button" class="w-50 btn btn-secondary btn-lg btn-block.">All</button>
+<div class="container-fluid">
+    <div class="row p-2">
+        <div class="col-6 d-flex justify-content-center">
+            <button id="MyLocationsBtn" type="button" class="w-80 btn btn-primary btn-md btn-block" (click)="MyLocations()">My Locations</button>
+        </div>
+        <div class="col-6 d-flex justify-content-center">
+            <button id="AllLocationsBtn" type="button" class="w-80 btn btn-secondary btn-md btn-block" (click)="AllLocations()">All Locations</button>
+        </div>
+    </div>
 </div>
 <app-notifications></app-notifications>

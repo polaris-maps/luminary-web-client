@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ReportComponent } from './report/report.component';
 import { MapComponent } from './map/map.component';
+import { IndividualNotificationComponent } from './individual-notification/individual-notification.component';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { MapComponent } from './map/map.component';
     HomeComponent,
     AboutComponent,
     ReportComponent,
-    MapComponent
+    MapComponent,
+    IndividualNotificationComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,

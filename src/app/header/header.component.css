@@ -1,3 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&family=Roboto:wght@300&display=swap');
 .bg-primary  {
-    background-color: purple !important;
+    background-color: #C7D1EA !important;
+}
+
+a {
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+.row {
+ width:100%;
+}
+
+.container-fluid {
+    justify-content: center;
+}
+
+.bi-list {
+    fill: black;
+    filter: brightness(0);
+}
+
+#navabar-toggler {
+    border: 0px;
+}
+
+.collapse {
+    height: 100%;
+}
+
+#collapseMenu {
+    height:100%;
+}
+.dropdownIcons {
+    padding-right: 5px;
+}
+
+/* For Desktop View */
+@media screen and (min-width: 1200px) {
+    #app {
+        display: none;
+    }
 }

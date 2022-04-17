@@ -1,0 +1,18 @@
+<div class="container mt-3">
+    <form #report="ngForm" (ngSubmit)="submitReport(report.value)">
+        <div class="form-outline mb-4">
+            <input type="email" id="emailBox" class="form-control" ngModel>
+            <label class="form-label" for="emailBox">Email address</label>
+        </div>
+        <div class="form-outline mb-4">
+            <input type="password" id="passwordBox" class="form-control" ngModel>
+            <label class="form-label" for="passwordBox">Password</label>
+        </div>
+        <button type = "submit" class="btn btn-primary btn-block w-100">Sign in</button>
+        <div class="text-center">
+            <p>Not a member?
+                <a href="#!">Register</a>
+            </p>
+        </div>
+    </form>
+</div>

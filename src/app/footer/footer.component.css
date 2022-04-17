@@ -1,0 +1,9 @@
+.btn-outline-primary {
+ background-color: #C4C4C4;
+ font: "Roboto";
+ font-weight: bolder;
+ color: black;
+ position: fixed;
+ bottom: 0;
+ right: 0;
+}
