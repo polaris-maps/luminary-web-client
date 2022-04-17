@@ -7,6 +7,7 @@ import {
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ import {
 
 export class IssueService {
   // Node/Express API
-  REST_API: string = 'http://localhost:5001/app'; // TODO: replace with production api
+  REST_API: string = environment.apiUrl;
   
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
