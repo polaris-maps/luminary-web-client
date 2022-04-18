@@ -15,6 +15,6 @@ export class HeaderComponent implements OnInit {
   closeMenu(): void {
     document.getElementById("navabar-toggler-button")?.setAttribute("aria-expanded", "false");
     document.getElementById("navabar-toggler-button")?.setAttribute("class", "navbar-toggler collapsed");
-    document.getElementById("navbarSupportedContent")?.setAttribute("class", "navbar-collapse collapse"); 
+    document.getElementById("navbarSupportedContent")?.setAttribute("class", "navbar-collapse collapse");
   }
 }

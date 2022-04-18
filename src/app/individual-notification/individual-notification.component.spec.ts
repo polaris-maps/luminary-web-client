@@ -8,9 +8,9 @@ describe('IndividualNotificationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndividualNotificationComponent ]
+      declarations: [IndividualNotificationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

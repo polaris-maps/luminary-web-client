@@ -16,11 +16,11 @@ import { environment } from '../../../environments/environment';
 export class IssueService {
   // Node/Express API
   REST_API: string = environment.apiUrl;
-  
+
   // Http Header
   httpHeaders = new HttpHeaders().set('Content-Type', 'application/json');
   constructor(private httpClient: HttpClient) { }
-  
+
   // Get a list of all the issues.
   getIssues() {
     return this.httpClient.get(`${this.REST_API}/issue/all`);

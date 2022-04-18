@@ -6,14 +6,14 @@ import * as L from 'leaflet';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
-export class MapComponent implements AfterViewInit { 
-  
+export class MapComponent implements AfterViewInit {
+
   private map: any;
- 
+
   // Map setup
   private initMap(): void {
     this.map = L.map('map', {
-      center: [ 35.91099, -79.056366 ],
+      center: [35.91099, -79.056366],
       zoom: 14
     });
 
@@ -24,22 +24,22 @@ export class MapComponent implements AfterViewInit {
     });
 
     tiles.addTo(this.map);
-    const marker = L.marker([ 35.91099, -79.056366]).addTo(this.map);
+    const marker = L.marker([35.91099, -79.056366]).addTo(this.map);
     const popup = L.popup();
     this.map.on('click', (e: any) => {
       popup
-      .setLatLng(e.latlng)
-      .setContent("You clicked the map at " + e.latlng.toString())
-      .openOn(this.map);
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(this.map);
     });
-    
+
   }
 
   constructor() { }
 
   // Method to add pins to map
   addPin(long: number, lat: number): void {
-    const marker = L.marker([ 35.913, -79.0564]).addTo(this.map);
+    const marker = L.marker([35.913, -79.0564]).addTo(this.map);
   }
 
   // Logic to covert building names from notifications to long ang lat for addPin()
@@ -49,7 +49,7 @@ export class MapComponent implements AfterViewInit {
 
   // TODO Hook up endpoint to fetch current pins based off notification board
   fetchCurrentPins(): void {
-    
+
   }
 
   ngAfterViewInit(): void {
