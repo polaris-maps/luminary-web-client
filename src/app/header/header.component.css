@@ -35,9 +35,9 @@ a {
     padding-right: 5px;
 }
 
-/* For Desktop View */
-@media screen and (min-width: 1200px) {
+/* TO REMOVE: For Desktop View - makes top navigation disappear */
+/* @media screen and (min-width: 1200px) {
     #app {
         display: none;
     }
-}
+} */
