@@ -1,7 +1,41 @@
-<form #report="ngForm" (ngSubmit)="submitReport(report.value)">
-    <input type="text" class="form-control" name="text1" placeholder="text1" ngModel>
-    <br>
-    <input type="text" class="form-control" name="text2" placeholder="text2" ngModel>
-    <br>
-    <input type="submit" class="btn btn-primary" value="submit">
-</form>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-4">
+        <form [formGroup]="reportIssueForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Location</label>
+                <input class="form-control" type="text" formControlName="location" placeholder="Building" required>
+            </div>
+            <br>
+            <!-- <div class="form-group">
+            <label>Latitude</label>
+            <input class="form-control" type="number" formControlName="latitude" placeholder="Leave blank if unknown">
+          </div>
+          <br>
+          <div class="form-group">
+            <label>Longitude</label>
+            <input class="form-control" type="number" formControlName="longitude" placeholder="Leave blank if unknown">
+          </div>
+          <br> -->
+            <div class="form-group">
+                <label>Description</label>
+                <input class="form-control" type="text" formControlName="description"
+                    placeholder="i.e., broken elevator" require>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="permanentStatus">Is this permanent?</label>
+                <div>
+                    <input id="noPermanent" type="radio" value="no" name="permanentStatus"
+                        formControlName="permanentStatus">
+                    <label for="no">No</label>
+                </div>
+                <div>
+                    <input id="yesPermanent" type="radio" value="yes" name="permanentStatus"
+                        formControlName="permanentStatus">
+                    <label for="yes">Yes</label>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
