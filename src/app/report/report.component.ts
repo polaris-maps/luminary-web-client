@@ -30,49 +30,6 @@ export class ReportComponent implements OnInit {
     })
   }
 
-
-
-//   mainCategory = {
-//     title: 'abc',
-//     id: 1
-//   };
-//   subCategory = {
-//     title: 'xxx',
-//     parentId: 1
-//   };
-
-//   mainGroups = [
-//     {
-//       title: 'abc',
-//       id: 1
-//     },
-//     {
-//       title: 'def',
-//       id: 2
-//     }
-//   ]
-
-//   subCategories = [
-//     {
-//       title: 'xxx',
-//       parentId: 1
-//     },
-//     {
-//       title: 'yyy',
-//       parentId: 1
-//     },
-//     {
-//       title: 'zzz',
-//       parentId: 2
-//     }
-//   ]
-
-//   filterSubById(id: Number) {
-//     return this.subCategories.filter(item => item.parentId === id);
-// }
-
-
-
   // Values are hardcoded for speed, but future revisions will not hardcode values
   campusModel = {
     name: 'UNC Chapel Hill'
