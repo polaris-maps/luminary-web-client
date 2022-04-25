@@ -6,6 +6,7 @@ import { Building } from '../service/building/building';
 import { IssueService } from '../service/issue/issue.service';
 import { Issue } from '../service/issue/issue';
 import { filter, map } from 'rxjs';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'app-report',
@@ -55,24 +56,34 @@ export class ReportComponent implements OnInit {
 
   onSubmit() {
     const rawInfo = this.reportIssueForm.value;
+    rawInfo.location = rawInfo.locationObject.name
+    // rawInfo.latitude = rawInfo.locationObject.defaultLatitude
+    // rawInfo.longitude = rawInfo.locationObject.defaultLongitude
+    rawInfo.status = rawInfo.permanentStatus == "yes" ? "Permanent" : "Closed"
+    // rawInfo.datetimeOpen = 0
+    // rawInfo.datetimeClosed = rawInfo.permanentStatus == "no" ? "new Date()" : 0
+    // rawInfo.datetimePermanent = rawInfo.permanentStatus == "yes" ? "new Date()" : 0
+    rawInfo.votes = 0
+
     console.log(rawInfo)
+    console.log(rawInfo.locationObject)
 
     // TODO: coerce raw info into form that can be submitted to addIssue
 
     // future release: select longitude/latitude on map
 
-    // this.issueService.addIssue(this.reportIssueForm.value).subscribe({
-    //   next: (result: any) => {
-    //     console.log('Data added successfully!')
-    //     this.ngZone.run(() => this.router.navigateByUrl('/'))
-    //   },
-    //   error: (err: any) => {
-    //     console.log(err);
-    //   },
-    //   complete: () => {
-    //     console.log('Upvote added.');
-    //     window.location.reload();
-    //   }
-    // })
+    this.issueService.addIssue(rawInfo).subscribe({
+      next: (result: any) => {
+        console.log('Data added successfully!')
+        this.ngZone.run(() => this.router.navigateByUrl('/'))
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log('Upvote added.');
+        window.location.reload();
+      }
+    })
   }
 }
