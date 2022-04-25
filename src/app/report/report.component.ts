@@ -57,19 +57,14 @@ export class ReportComponent implements OnInit {
   onSubmit() {
     const rawInfo = this.reportIssueForm.value;
     rawInfo.location = rawInfo.locationObject.name
-    // rawInfo.latitude = rawInfo.locationObject.defaultLatitude
-    // rawInfo.longitude = rawInfo.locationObject.defaultLongitude
+    rawInfo.latitude = rawInfo.locationObject.defaultLatitude
+    rawInfo.longitude = rawInfo.locationObject.defaultLongitude
     rawInfo.status = rawInfo.permanentStatus == "yes" ? "Permanent" : "Closed"
-    // rawInfo.datetimeOpen = 0
-    // rawInfo.datetimeClosed = rawInfo.permanentStatus == "no" ? "new Date()" : 0
-    // rawInfo.datetimePermanent = rawInfo.permanentStatus == "yes" ? "new Date()" : 0
+    rawInfo.datetimeOpen = new Date().getTime()
+    rawInfo.datetimeClosed = rawInfo.permanentStatus == "no" ? new Date().getTime() : 0
+    rawInfo.datetimePermanent = rawInfo.permanentStatus == "yes" ? new Date().getTime() : 0
     rawInfo.votes = 0
-
-    console.log(rawInfo)
-    console.log(rawInfo.locationObject)
-
-    // TODO: coerce raw info into form that can be submitted to addIssue
-
+    
     // future release: select longitude/latitude on map
 
     this.issueService.addIssue(rawInfo).subscribe({
