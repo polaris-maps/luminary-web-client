@@ -34,10 +34,19 @@ a {
 .dropdownIcons {
     padding-right: 5px;
 }
+#desktopNav {
+    display: none;
+}
 
 /* TO REMOVE: For Desktop View - makes top navigation disappear */
-/* @media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     #app {
         display: none;
     }
-} */
+    #desktopNav {
+        display: contents;
+    }
+    li {
+        font-size: .8em;
+    }
+} 
