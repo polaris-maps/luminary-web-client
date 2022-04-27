@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { LoginServiceService } from '../login-service.service';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css']
 })
-export class SigninComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
 
   logger: LoginServiceService
   router: Router;
@@ -19,11 +19,11 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // TODO Hookup endpoint from Database to submit new information 
-  submitReport(data: any): void {
+   // TODO Hookup endpoint from Database to submit new information 
+   submitReport(data: any): void {
     console.log(data);
-
-    // TODO add database call to check if information is in database, if true set logged in to true and navigate home.  If false throw error
+    
+    // check if already have account in database, if not create one
     this.logger.isloggedIn = true;
     this.router.navigate(['/']);
   }
