@@ -20,6 +20,10 @@ a {
     filter: brightness(0);
 }
 
+.bi-person-circle {
+ cursor: pointer;
+}
+
 #navabar-toggler {
     border: 0px;
 }
