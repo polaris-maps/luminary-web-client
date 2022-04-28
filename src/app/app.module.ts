@@ -43,7 +43,7 @@ import { AccountComponent } from './account/account.component';
     ReactiveFormsModule,
     AppRoutingModule,
     LoggerModule.forRoot({
-      serverLoggingUrl: environment.apiUrl + '/logs/',
+      serverLoggingUrl: environment.apiUrl + '/clientLog/add',
       level: NgxLoggerLevel.DEBUG,
       serverLogLevel: NgxLoggerLevel.DEBUG,
       httpResponseType: 'json'
