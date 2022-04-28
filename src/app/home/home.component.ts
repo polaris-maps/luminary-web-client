@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  componentName: String;
 
-  constructor() { }
+  constructor(private logger: NGXLogger) {
+    this.componentName = "home";
+
+    this.logger.info("Render home page", this.componentName, "constructor");
+  }
 
   ngOnInit(): void {
     const allLocationsBtn = document.getElementById("AllLocationsBtn");
@@ -24,6 +30,8 @@ export class HomeComponent implements OnInit {
       allLocationsBtn.style.fontWeight = "bold";
       myLocationsBtn.style.fontWeight = "normal";
     }
+
+    this.logger.info("Show all locations", this.componentName, "AllLocations");
   }
 
   // Fetch Endpoint
@@ -34,7 +42,7 @@ export class HomeComponent implements OnInit {
       allLocationsBtn.style.fontWeight = "normal";
       myLocationsBtn.style.fontWeight = "bold";
     }
+
+    this.logger.info("Show my locations", this.componentName, "MyLocations");
   }
-
-
 }

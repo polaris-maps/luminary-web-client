@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-individual-notification',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./individual-notification.component.css']
 })
 export class IndividualNotificationComponent implements OnInit {
+  componentName: String;
 
-  constructor() { }
+  constructor(private logger: NGXLogger) {
+    this.componentName = "individual-notification";
+
+    this.logger.info("Render individual notification page", this.componentName, "constructor");
+  
+  }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { NGXLogger } from "ngx-logger";
 import * as L from 'leaflet';
 
 @Component({
@@ -7,8 +8,14 @@ import * as L from 'leaflet';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements AfterViewInit {
-
+  componentName: String;
   private map: any;
+
+  constructor(private logger: NGXLogger) {
+    this.componentName = "map";
+
+    this.logger.info("Render map page", this.componentName, "constructor");
+  }
 
   // Map setup
   private initMap(): void {
@@ -31,30 +38,29 @@ export class MapComponent implements AfterViewInit {
         .setLatLng(e.latlng)
         .setContent("You clicked the map at " + e.latlng.toString())
         .openOn(this.map);
+      this.logger.info("Map clicked at " + e.latlng.toString(), this.componentName, "initMap");
     });
-
+    this.logger.info("Render map", this.componentName, "initMap");
   }
-
-  constructor() { }
 
   // Method to add pins to map
-  addPin(long: number, lat: number): void {
+  addPin(lat: number, long: number): void {
    // const marker = L.marker([35.913, -79.0564]).addTo(this.map);
+   this.logger.info("Add pin", this.componentName, "addPin");
   }
 
-  // Logic to covert building names from notifications to long ang lat for addPin()
-  getCordsForBuildings(): Array<number> {
+  // Logic to covert building names from notifications to lat and long for addPin()
+  getCoordsForBuildings(): Array<number> {
+    this.logger.info("Get lat/long coordinates", this.componentName, "getCoordsForBuildings");
     return [0];
   }
 
   // TODO Hook up endpoint to fetch current pins based off notification board
   fetchCurrentPins(): void {
-
+    this.logger.info("Fetch current pins", this.componentName, "fetchCurrentPins");
   }
 
   ngAfterViewInit(): void {
     this.initMap();
   }
-
-
 }

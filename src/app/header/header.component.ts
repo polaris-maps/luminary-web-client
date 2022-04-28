@@ -14,11 +14,12 @@ export class HeaderComponent implements OnInit {
   componentName: String;
 
   constructor(loginService: LoginServiceService, routerAng: Router, private logger: NGXLogger) { 
-    this.login = loginService;
-    this.router = routerAng;
     this.componentName = "header";
 
-    this.logger.info("Render About Page", this.componentName, "constructor");
+    this.login = loginService;
+    this.router = routerAng;
+
+    this.logger.info("Render header", this.componentName, "constructor");
   }
 
   ngOnInit(): void {
