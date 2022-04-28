@@ -9,9 +9,9 @@ import { NGXLogger } from "ngx-logger";
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
+  componentName: String
   login: LoginServiceService
-  router: Router;
-  componentName: String;
+  router: Router
 
   constructor(loginService: LoginServiceService, routerAng: Router, private logger: NGXLogger) {
     this.componentName = "account";

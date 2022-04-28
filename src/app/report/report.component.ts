@@ -7,6 +7,7 @@ import { IssueService } from '../service/issue/issue.service';
 import { Issue } from '../service/issue/issue';
 import { filter, map } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
+import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-report',
@@ -15,6 +16,7 @@ import { ElementSchemaRegistry } from '@angular/compiler';
 })
 
 export class ReportComponent implements OnInit {
+  componentName: String;
   reportIssueForm: FormGroup;
 
   constructor(
@@ -22,13 +24,18 @@ export class ReportComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private buildingService: BuildingService,
-    private issueService: IssueService
+    private issueService: IssueService,
+    private logger: NGXLogger
   ) {
+    this.componentName = "report";
+
     this.reportIssueForm = this.formBuilder.group({
       locationObject: [''],
       description: [''],
       permanentStatus: ['']
-    })
+    });
+
+    this.logger.info("Render report page", this.componentName, "constructor");
   }
 
   // Values are hardcoded for speed, but future revisions will not hardcode values
@@ -45,8 +52,10 @@ export class ReportComponent implements OnInit {
   buildings = []
 
   filterBuildingsByCampus(campusName: String) {
+    this.logger.info("Buildings filtered by campus: " + campusName, this.componentName, "filterBuildingsByCampus");
+  
     return this.buildings.filter((item: any) => item.campus == campusName);
-  }
+    }
 
   ngOnInit() {
     this.buildingService.getBuildings().subscribe((data: any) => {
@@ -64,19 +73,19 @@ export class ReportComponent implements OnInit {
     rawInfo.datetimeClosed = rawInfo.permanentStatus == "no" ? new Date().getTime() : 0
     rawInfo.datetimePermanent = rawInfo.permanentStatus == "yes" ? new Date().getTime() : 0
     rawInfo.votes = 0
+
+    this.logger.info("Report of issue submitted", this.componentName, "onSubmit");
     
     // future release: select longitude/latitude on map
 
     this.issueService.addIssue(rawInfo).subscribe({
       next: (result: any) => {
-        console.log('Data added successfully!')
         this.ngZone.run(() => this.router.navigateByUrl('/'))
       },
       error: (err: any) => {
-        console.log(err);
+        this.logger.error("Error in adding issue", this.componentName, err);
       },
       complete: () => {
-        console.log('Upvote added.');
         window.location.reload();
       }
     })
