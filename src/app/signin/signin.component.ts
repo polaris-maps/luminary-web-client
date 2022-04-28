@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../login-service.service';
+import { LoginService } from '../service/login/login.service';
 import { NGXLogger } from "ngx-logger";
 
 @Component({
@@ -10,10 +10,10 @@ import { NGXLogger } from "ngx-logger";
 })
 export class SigninComponent implements OnInit {
   componentName: String
-  login: LoginServiceService
+  login: LoginService
   router: Router
 
-  constructor(loggerService: LoginServiceService, routerAng: Router, private logger: NGXLogger) { 
+  constructor(loggerService: LoginService, routerAng: Router, private logger: NGXLogger) { 
     this.componentName = "signin";
 
     this.login = loggerService;

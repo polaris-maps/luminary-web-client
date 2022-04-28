@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../login-service.service';
+import { LoginService } from '../service/login/login.service';
 import { NGXLogger } from "ngx-logger";
 
 @Component({
@@ -9,11 +9,11 @@ import { NGXLogger } from "ngx-logger";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  login: LoginServiceService;
+  login: LoginService;
   router: Router;
   componentName: String;
 
-  constructor(loginService: LoginServiceService, routerAng: Router, private logger: NGXLogger) { 
+  constructor(loginService: LoginService, routerAng: Router, private logger: NGXLogger) { 
     this.componentName = "header";
 
     this.login = loginService;
