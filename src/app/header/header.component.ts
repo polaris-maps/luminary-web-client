@@ -11,14 +11,14 @@ import { NGXLogger } from "ngx-logger";
 export class HeaderComponent implements OnInit {
   login: LoginServiceService;
   router: Router;
-  componentName: string;
+  componentName: String;
 
   constructor(loginService: LoginServiceService, routerAng: Router, private logger: NGXLogger) { 
     this.login = loginService;
     this.router = routerAng;
-    this.componentName = "header"
+    this.componentName = "header";
 
-    this.logger.info("Header rendered", this.componentName);
+    this.logger.info("Render About Page", this.componentName, "constructor");
   }
 
   ngOnInit(): void {
@@ -29,17 +29,17 @@ export class HeaderComponent implements OnInit {
     document.getElementById("navabar-toggler-button")?.setAttribute("class", "navbar-toggler collapsed");
     document.getElementById("navbarSupportedContent")?.setAttribute("class", "navbar-collapse collapse");
     console.log(this.login.isloggedIn);
-    this.logger.info("Menu toggled", this.componentName);
+    this.logger.info("Menu toggled", this.componentName, "closeMenu");
   }
 
 
   determineLogin(): void {
     if (this.login.isloggedIn) {
-      this.logger.info("User logged in, navigate to account", this.componentName);
+      this.logger.info("User logged in, navigate to account", this.componentName, "determineLogin");
       this.router.navigate(['/account']);
     } else {
       this.router.navigate(['/signin']);
-      this.logger.info("User not logged in, navigate to signin", this.componentName);
+      this.logger.info("User not logged in, navigate to signin", this.componentName, "determineLogin");
     }
   }
 }
