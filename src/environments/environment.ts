@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5001/app' // TODO: replace with production url
+  apiUrl: 'https://accessnav-api-git-ctine987.apps.cloudapps.unc.edu/app/'
 };
 
 /*
