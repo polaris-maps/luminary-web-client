@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Issue } from './issue';
+import { indoorIssue } from './indoor-issue';
 import { catchError, map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import {
@@ -13,7 +13,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 
-export class IssueService {
+export class IndoorIssueService {
   // Node/Express API
   REST_API: string = environment.apiUrl;
 
@@ -22,12 +22,12 @@ export class IssueService {
   constructor(private httpClient: HttpClient) { }
 
   // Get a list of all the issues.
-  getIssues() {
-    return this.httpClient.get(`${this.REST_API}/issue/all`);
+  getIndoorIssues() {
+    return this.httpClient.get(`${this.REST_API}/indoorIssue/all`);
   }
 
   // Get a single issue by id.
-  getIssue(id: any): Observable<any> {
+  getIndoorIssue(id: any): Observable<any> {
     let API_URL = `${this.REST_API}/issue/${id}`;
     return this.httpClient.get(API_URL, { headers: this.httpHeaders }).pipe(
       map((res: any) => {
@@ -38,24 +38,24 @@ export class IssueService {
   }
 
   // Create a new issue.
-  addIssue(data: Issue): Observable<any> {
-    let API_URL = `${this.REST_API}/issue/add`;
+  addIndoorIssue(data: indoorIssue): Observable<any> {
+    let API_URL = `${this.REST_API}/indoorIssue/add`;
     return this.httpClient
       .post(API_URL, data)
       .pipe(catchError(this.handleError));
   }
 
   // Update an issue by id.
-  updateIssue(id: any, data: any): Observable<any> {
-    let API_URL = `${this.REST_API}/issue/update/${id}`;
+  updateIndoorIssue(id: any, data: any): Observable<any> {
+    let API_URL = `${this.REST_API}/indoorIssue/update/${id}`;
     return this.httpClient
       .patch(API_URL, data, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));
   }
 
   // Delete an issue by id.
-  deleteIssue(id: any): Observable<any> {
-    let API_URL = `${this.REST_API}/issue/delete/${id}`;
+  deleteIndoorIssue(id: any): Observable<any> {
+    let API_URL = `${this.REST_API}/indoorIssue/delete/${id}`;
     return this.httpClient
       .delete(API_URL, { headers: this.httpHeaders })
       .pipe(catchError(this.handleError));

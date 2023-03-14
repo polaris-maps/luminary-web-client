@@ -1,12 +1,11 @@
-export class Issue {
+export class indoorIssue {
     _id!: String;
     location!: String;
-    latitude!: Number;
-    longitude!: Number;
+    category!: String;
     description!: String;
     status!: String;
     datetimeOpen!: String;
     datetimeClosed!: String;
     datetimePermanent!: String;
-    votes!: Number;
+    votes!: [String];
 }
