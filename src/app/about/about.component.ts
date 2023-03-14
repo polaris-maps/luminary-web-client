@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-about',
@@ -9,10 +8,8 @@ import { NGXLogger } from "ngx-logger";
 export class AboutComponent implements OnInit {
   componentName: String;
 
-  constructor(private logger: NGXLogger) {
+  constructor() {
     this.componentName = "header";
-
-    this.logger.info("About page rendered", this.componentName, "constructor");
   }
 
   ngOnInit(): void {

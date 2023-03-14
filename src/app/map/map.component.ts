@@ -20,8 +20,8 @@ export class MapComponent implements AfterViewInit {
   // Map setup
   private initMap(): void {
     this.map = L.map('map', {
-      center: [35.91099, -79.056366],
-      zoom: 14
+      center: [35.909382, -79.047623],
+      zoom: 15.25
     });
 
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-footer',
@@ -9,13 +8,10 @@ import { NGXLogger } from "ngx-logger";
 export class FooterComponent implements OnInit {
   componentName: String;
 
-  constructor(private logger: NGXLogger) {
+  constructor() {
     this.componentName = "footer";
-
-    this.logger.info("Render footer", this.componentName, "constructor");
   }
 
   ngOnInit(): void {
   }
-
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IndoorIssueService } from '../service/indoorIssue/indoor-issue.service';
-import { NGXLogger } from "ngx-logger";
 
 @Component({
   selector: 'app-notifications',
@@ -13,10 +12,8 @@ export class NotificationsComponent implements OnInit {
   handleUpdateResponse: any;
   handleError: any;
 
-  constructor(private indoorIssueService: IndoorIssueService, private logger: NGXLogger) {
+  constructor(private indoorIssueService: IndoorIssueService) {
     this.componentName = "notifications";
-
-    this.logger.info("Render notifications page", this.componentName, "constructor");
   }
   // Angular Init method, retrieve all notifications from database
   ngOnInit(): void {
@@ -27,7 +24,7 @@ export class NotificationsComponent implements OnInit {
 
   // TODO Method to retrive only user filtered notifications from database
   fetchMyNotifications(): void {
-    this.logger.info("Retrieve user filtered notifications", this.componentName, "fetchMyNotifications");
+
   }
 
   // Upvote method send data to database

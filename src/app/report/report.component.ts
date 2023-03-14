@@ -34,8 +34,6 @@ export class ReportComponent implements OnInit {
       description: [''],
       permanentStatus: ['']
     });
-
-    this.logger.info("Render report page", this.componentName, "constructor");
   }
 
   // Values are hardcoded for speed, but future revisions will not hardcode values
@@ -52,10 +50,8 @@ export class ReportComponent implements OnInit {
   buildings = []
 
   filterBuildingsByCampus(campusName: String) {
-    this.logger.info("Buildings filtered by campus: " + campusName, this.componentName, "filterBuildingsByCampus");
-  
     return this.buildings.filter((item: any) => item.campus == campusName);
-    }
+  }
 
   ngOnInit() {
     this.buildingService.getBuildings().subscribe((data: any) => {
@@ -74,8 +70,6 @@ export class ReportComponent implements OnInit {
     rawInfo.datetimePermanent = rawInfo.permanentStatus == "yes" ? new Date().getTime() : 0
     rawInfo.votes = 0
 
-    this.logger.info("Report of issue submitted", this.componentName, "onSubmit");
-    
     // future release: select longitude/latitude on map
 
     this.indoorIssueService.addIndoorIssue(rawInfo).subscribe({
@@ -83,6 +77,7 @@ export class ReportComponent implements OnInit {
         this.ngZone.run(() => this.router.navigateByUrl('/'))
       },
       error: (err: any) => {
+        // TODO: change
         this.logger.error("Error in adding issue", this.componentName, err);
       },
       complete: () => {
