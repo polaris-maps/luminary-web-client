@@ -23,6 +23,7 @@ export class IndoorIssueService {
 
   // Get a list of all the issues.
   getIndoorIssues() {
+    console.log(`${this.REST_API}/indoorIssue/all`);
     return this.httpClient.get(`${this.REST_API}/indoorIssue/all`);
   }
 

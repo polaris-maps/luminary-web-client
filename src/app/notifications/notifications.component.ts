@@ -34,43 +34,43 @@ export class NotificationsComponent implements OnInit {
   upvote(id: string): void {
     // TODO: check if id in list of indoorissues user has upvoted
 
-    this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
-      this.indoorIssueService.updateIndoorIssue(id, {
-        "votes": res.votes + 1
-      }).subscribe({
-        next: (result: any) => {
-          // console.log(result);
-        },
-        error: (err: any) => {
-          this.logger.error("Cannot upvote", this.componentName, "upvote");
-        },
-        complete: () => {
-          this.logger.log("Upvote added", this.componentName, "upvote");
-          window.location.reload();
-        }
-      })
-    })
+    // this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
+    //   this.indoorIssueService.updateIndoorIssue(id, {
+    //     "votes": res.votes + 1
+    //   }).subscribe({
+    //     next: (result: any) => {
+    //       // console.log(result);
+    //     },
+    //     error: (err: any) => {
+    //       this.logger.error("Cannot upvote", this.componentName, "upvote");
+    //     },
+    //     complete: () => {
+    //       this.logger.log("Upvote added", this.componentName, "upvote");
+    //       window.location.reload();
+    //     }
+    //   })
+    // })
   }
 
   // Downvote method to send data to datebase
   downvote(id: string): void {
     // TODO: check if id in list of indoorissues user has upvoted
 
-    this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
-      this.indoorIssueService.updateIndoorIssue(id, {
-        "votes": res.votes - 1
-      }).subscribe({
-        next: (result: any) => {
-          // console.log(result);
-        },
-        error: (err: any) => {
-          this.logger.error("Cannot downvote", this.componentName, "downvote");
-        },
-        complete: () => {
-          this.logger.log("Downvote completed", this.componentName, "downvote");
-          window.location.reload();
-        }
-      })
-    })
+    // this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
+    //   this.indoorIssueService.updateIndoorIssue(id, {
+    //     "votes": res.votes - 1
+    //   }).subscribe({
+    //     next: (result: any) => {
+    //       // console.log(result);
+    //     },
+    //     error: (err: any) => {
+    //       this.logger.error("Cannot downvote", this.componentName, "downvote");
+    //     },
+    //     complete: () => {
+    //       this.logger.log("Downvote completed", this.componentName, "downvote");
+    //       window.location.reload();
+    //     }
+    //   })
+    // })
   }
 }

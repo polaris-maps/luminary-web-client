@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://accessnav-api-git-ctine987.apps.cloudapps.unc.edu/app/'
+  apiUrl: 'https://accessnav-api-git-ctine987.apps.cloudapps.unc.edu/app'
 };
 
 /*

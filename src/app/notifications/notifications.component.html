@@ -14,9 +14,6 @@
       <td>{{issue.location}}</td>
       <td>{{issue.description}}</td>
       <td value="EEEE, MMMM d, yyyy h:mm a">{{issue.datetimeOpen | date:'EEEE, MMMM d, yyyy h:mm a'}}</td>
-      <td>{{issue.votes}}</td>
-      <td><button class="btn btn-primary" (click)="upvote(issue._id)">Up</button></td>
-      <td><button class="btn btn-secondary" (click)="downvote(issue._id)">Down</button></td>
     </tr>
   </tbody>
 </table>
