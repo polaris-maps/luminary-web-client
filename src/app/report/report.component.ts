@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl, AbstractControl } from "@angular/forms";
 import { BuildingService } from '../service/building/building.service';
 import { Building } from '../service/building/building';
-import { IssueService } from '../service/issue/issue.service';
-import { Issue } from '../service/issue/issue';
+import { IndoorIssueService } from '../service/indoorIssue/indoor-issue.service';
+import { indoorIssue } from '../service/indoorIssue/indoor-issue';
 import { filter, map } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { NGXLogger } from "ngx-logger";
@@ -24,7 +24,7 @@ export class ReportComponent implements OnInit {
     private router: Router,
     private ngZone: NgZone,
     private buildingService: BuildingService,
-    private issueService: IssueService,
+    private indoorIssueService: IndoorIssueService,
     private logger: NGXLogger
   ) {
     this.componentName = "report";
@@ -78,7 +78,7 @@ export class ReportComponent implements OnInit {
     
     // future release: select longitude/latitude on map
 
-    this.issueService.addIssue(rawInfo).subscribe({
+    this.indoorIssueService.addIndoorIssue(rawInfo).subscribe({
       next: (result: any) => {
         this.ngZone.run(() => this.router.navigateByUrl('/'))
       },
