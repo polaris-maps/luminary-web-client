@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IssueService } from '../service/issue/issue.service';
+import { IndoorIssueService } from '../service/indoorIssue/indoor-issue.service';
 import { NGXLogger } from "ngx-logger";
 
 @Component({
@@ -9,19 +9,19 @@ import { NGXLogger } from "ngx-logger";
 })
 export class NotificationsComponent implements OnInit {
   componentName: String;
-  Issues: any = [];
+  indoorIssues: any = [];
   handleUpdateResponse: any;
   handleError: any;
 
-  constructor(private issueService: IssueService, private logger: NGXLogger) {
+  constructor(private indoorIssueService: IndoorIssueService, private logger: NGXLogger) {
     this.componentName = "notifications";
 
     this.logger.info("Render notifications page", this.componentName, "constructor");
   }
   // Angular Init method, retrieve all notifications from database
   ngOnInit(): void {
-    this.issueService.getIssues().subscribe(res => {
-      this.Issues = res;
+    this.indoorIssueService.getIndoorIssues().subscribe(res => {
+      this.indoorIssues = res;
     });
   }
 
@@ -32,10 +32,10 @@ export class NotificationsComponent implements OnInit {
 
   // Upvote method send data to database
   upvote(id: string): void {
-    // TODO: check if id in list of issues user has upvoted
+    // TODO: check if id in list of indoorissues user has upvoted
 
-    this.issueService.getIssue(id).subscribe(res => {
-      this.issueService.updateIssue(id, {
+    this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
+      this.indoorIssueService.updateIndoorIssue(id, {
         "votes": res.votes + 1
       }).subscribe({
         next: (result: any) => {
@@ -54,10 +54,10 @@ export class NotificationsComponent implements OnInit {
 
   // Downvote method to send data to datebase
   downvote(id: string): void {
-    // TODO: check if id in list of issues user has upvoted
+    // TODO: check if id in list of indoorissues user has upvoted
 
-    this.issueService.getIssue(id).subscribe(res => {
-      this.issueService.updateIssue(id, {
+    this.indoorIssueService.getIndoorIssue(id).subscribe(res => {
+      this.indoorIssueService.updateIndoorIssue(id, {
         "votes": res.votes - 1
       }).subscribe({
         next: (result: any) => {

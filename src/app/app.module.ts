@@ -16,7 +16,6 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ReportComponent } from './report/report.component';
 import { MapComponent } from './map/map.component';
-import { IndividualNotificationComponent } from './individual-notification/individual-notification.component';
 import { SigninComponent } from './signin/signin.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AccountComponent } from './account/account.component';
@@ -31,7 +30,6 @@ import { AccountComponent } from './account/account.component';
     AboutComponent,
     ReportComponent,
     MapComponent,
-    IndividualNotificationComponent,
     SigninComponent,
     RegistrationComponent,
     AccountComponent
