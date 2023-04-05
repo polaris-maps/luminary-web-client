@@ -6,3 +6,24 @@
   </div>
   <button (click)="addPin(1, 0)">Add pin</button>
 </div>
+<div class="container">
+    <form [formGroup]="buildingForm" (ngSubmit)="changeBuilding()">
+        <div class="form-group">
+            <label>Description</label>
+            <input class="form-control" type="text" formControlName="description"
+                placeholder="i.e., broken elevator" require>
+        </div>
+        <br>
+        <button class="btn btn-primary btn-block mt-1" type="submit">Set Building Name</button>
+    </form>
+    <table>
+        <thead>
+          <tr>
+            <th>Building</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
