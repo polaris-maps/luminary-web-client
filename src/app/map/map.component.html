@@ -9,11 +9,10 @@
 <div class="container">
     <form [formGroup]="buildingForm" (ngSubmit)="changeBuilding()">
         <div class="form-group">
-            <label>Description</label>
+            <label>Building</label>
             <input class="form-control" type="text" formControlName="description"
                 placeholder="i.e., broken elevator" require>
         </div>
-        <br>
         <button class="btn btn-primary btn-block mt-1" type="submit">Set Building Name</button>
     </form>
     <table>
